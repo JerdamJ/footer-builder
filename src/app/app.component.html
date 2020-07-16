@@ -1,0 +1,24 @@
+<div class="min-h-screen">
+  <app-header></app-header>
+  <div>
+    <main>
+      <div class="mx-auto content-page">
+        <div class="grid grid-cols-10 flex flex-col h-full">
+          <div class="col-span-2 border-r border-gray-200 bg-white flex flex-col min-h-full">
+            <h1 class="font-semibold px-8 py-5 border-b border-gray-100 text-gray-900">Modules</h1>
+            <div class="p-8 scroll scroll--scrollbar-thin">
+              <app-modules></app-modules>
+            </div>
+          </div>
+          <div class="col-span-3 border-r border-gray-200 bg-white flex flex-col min-h-full">
+            <app-workspace></app-workspace>
+          </div>
+          <div class="col-span-5 border-r border-gray-200 bg-white flex flex-col min-h-full">
+            <app-preview></app-preview>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+

@@ -1,0 +1,48 @@
+  <h1 class="font-semibold px-8 py-5 border-b border-gray-100 text-gray-900">Workspace</h1>
+  <div class="scroll scroll--scrollbar-thin">
+    <div
+      class="bg-white relative workspace"
+      cdkDropList
+      id="selectedList"
+      [ngClass]="{'workspace-empty': !selectedModules.length}"
+      [cdkDropListData]="selectedModules"
+      (cdkDropListDropped)="drop($event)">
+        <div *ngIf="!selectedModules.length" class="block absolute w-full p-10 text-gray-400 text-xl text-center">
+          <p>Drop modules here</p>
+          <span class="text-3xl">
+            <mat-icon [inline]="true">vertical_align_bottom</mat-icon>
+          </span>
+        </div>
+        <div cdkDrag
+        class="workspace-element"
+        *ngFor="let item of selectedModules | keyvalue; let index = index">
+          <div class="block bg-white border-b border-gray-200">
+            <a href="#"
+            (click)="openSettings($event, item.value)"
+            class="flex items-center px-4 sm:px-6 bg-gray-50">
+              <div class="min-w-0 flex-1 py-4 flex items-center">
+                <div cdkDragHandle
+                class="ml-2 mr-3 cursor-move text-gray-500">
+                <mat-icon [inline]="true">drag_handle</mat-icon>
+                </div>
+
+                <div class="font-semibold truncate">
+                  {{item.value.name | titlecase}}
+                </div>
+              </div>
+              <div class="text-xl flex items-center">
+                <button (click)="openSettings($event, item.value)" class="focus:outline-none mr-3">
+                  <mat-icon [inline]="true">edit</mat-icon>
+                </button>
+                <button (click)="removeModule(item.key)">
+                  <mat-icon [inline]="true">delete</mat-icon>
+                </button>
+              </div>
+            </a>
+            <div *ngIf="moduleSettings === item.value" class="px-4 py-5 sm:px-6 border-t border-gray-200">
+              <app-settings (updated)="refreshPreview()" [module]="item.value"></app-settings>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,16 @@
+<div class="grid grid-cols-1 gap-6"
+  cdkDropList
+  #availableList="cdkDropList"
+  [cdkDropListData]="modules"
+  cdkDropListConnectedTo="selectedList"
+  [cdkDropListSortingDisabled]="true">
+  <div *ngIf="pending"
+    class="block hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-150 ease-in-out">
+      Loading...
+  </div>
+  <app-module class="rounded overflow-hidden shadow-lg bg-white cursor-move"
+    cdkDrag
+    *ngFor="let item of modules" [module]="item">
+  </app-module>
+</div>
+

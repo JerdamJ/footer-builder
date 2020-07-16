@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "@tailwindcss/ui/dist/tailwind-ui.css";
+@import url('https://rsms.me/inter/inter.css');
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Inter, sans-serif; overflow-y: hidden;}
+iframe{background-color: white}
+.btn {
+  @apply font-bold py-2 px-4 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
+}
+
+.scroll {
+  overflow-y: auto;
+  flex-grow: 1;
+  overflow-x: hidden;
+
+  &--scrollbar-thin {
+
+    &::-webkit-scrollbar-track
+    {
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar
+    {
+      width: 6px;
+      background-color: #F5F5F5;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      background-color: #b6b6b6;
+    }
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 1;
+}
+
+.cdk-drag-dragging {
+  height: 56px;
+  overflow: hidden;
+  border: 10px solid red;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+

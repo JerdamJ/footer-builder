@@ -1,0 +1,17 @@
+<img *ngIf="module.image && module.image[0]"
+  class="w-full drag-hide"
+  src="{{'https://api.flotiq.com' + module.image[0].url}}"
+  alt="">
+<div
+  *ngIf="!(module.image && module.image[0]) && module.icon"
+  class="w-full p-2 bg-indigo-600 text-center text-3xl xl:text-6xl text-white drag-hide">
+  <mat-icon
+    style="width: {{ 100/getIcons(module).length }}%"
+    *ngFor="let icon of getIcons(module)"
+    [inline]="true">
+    {{icon}}
+  </mat-icon>
+</div>
+<div class="px-3 py-2 xl:px-6 xl:py-4">
+  <div class="">{{module.name | titlecase}}</div>
+</div>

@@ -1,0 +1,20 @@
+<div class="font-semibold px-8  border-b border-gray-100 text-gray-900 flex items-center justify-between">
+  <div class="py-5">Preview</div>
+    <div>
+      <button (click)="changePreviewWidth()"
+      class="py-1 px-2 mr-2 border inline-flex items-center border-gray-600 text-sm rounded-md text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
+        <mat-icon [inline]="true" class="mr-1">desktop_windows</mat-icon> Desktop
+      </button>
+      <button (click)="changePreviewWidth(420)"
+      class="py-1 px-2 mr-2 border inline-flex items-center border-gray-600 text-sm rounded-md text-gray-600 shadow-sm hover:bg-gray-100 focus:outline-none transition duration-150 ease-in-out">
+        <mat-icon [inline]="true" class="mr-1">smartphone</mat-icon> Mobile
+      </button>
+      <button (click)="get()"
+      class="py-1 px-2 border inline-flex items-center border-transparent text-sm rounded-md text-white bg-indigo-600 shadow-sm hover:bg-indigo-500 focus:outline-none transition duration-150 ease-in-out">
+        <mat-icon [inline]="true" class="mr-1">get_app</mat-icon> Download
+      </button>
+    </div>
+</div>
+<iframe #preview class="preview"
+        [ngStyle]="{'max-width': previewMaxWidth ? previewMaxWidth+'px' : '100%'}"
+        [srcdoc]="html| safe: 'html'"></iframe>
