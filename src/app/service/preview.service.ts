@@ -30,21 +30,11 @@ export class PreviewService {
   }
 
   /**
-   * String replace template compiler
-   */
-  // compile(template: string, context: Property[]): string {
-  //   context.forEach((element: any) => {
-  //     const tag = '{{ ' + element.key + ' }}';
-  //     template = template.replace(tag, element.value);
-  //   });
-  //   return template;
-  // }
-
-  /**
    * Handlebars template compiler
    */
   compile(template: string, context: Property[]): string {
     const compiledTemplate = Handlebars.compile(template, {noEscape: true});
+    console.log(compiledTemplate);
     const parameters = [];
     context.forEach((element: Property) => {
       parameters[element.key] = element.value;
